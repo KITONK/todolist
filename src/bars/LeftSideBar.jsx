@@ -7,6 +7,8 @@ import Button from '../components/button/Button';
 import ListList from '../components/ListList';
 import ListForm from '../components/ListForm';
 import ListFilter from '../components/ListFilter';
+import Icon from '../components/icon/Icon';
+import ListInfo from '../components/ListInfo';
 
 function LeftSideBar () {
     const [lists, setLists] = useState([
@@ -30,27 +32,36 @@ function LeftSideBar () {
     
     
       return (
+          <div>
           <div className="split leftSideBar">
-              <div style={{borderRight: '1px solid #ff0000'}}>
               <div className="header-leftSideBar">
                   <Menu/>
-                  <img src={weather} width="30" height="30" alt="picture" />
+                  <Icon src={weather} alt="weather"/>
               </div>
               <ListFilter
                 filter={filter}
                 setFilter={setFilter}
               />
-                <ListList remove={removeList} lists={searchLists} />
-                <div className="button-leftSideBar">
-                <Button onClick={()=>setModal(true)}>Add list</Button>
+              <div className="body-leftSideBar">
+                <ListList lists={searchLists} />
+             </div>
+             <div className="button-leftSideBar">
+                <Button style={{display: 'block',  marginLeft: 'auto', marginRight: 'auto'}} onClick={()=>setModal(true)}>Add list</Button>
                 <Modal
                   visible={modal}
                   setVisible={setModal}
                 >
                   <ListForm create = {createList} />
                 </Modal>
-                </div>
-                </div>
+             </div>
+             <div className="split rightSideBar">
+                 <div className="rightSideBar__content">
+                 {lists.map((list) => 
+                    <ListInfo list={list}/>
+                 )}
+                 </div>
+            </div>
+          </div>
           </div>
       );
 }
