@@ -1,0 +1,13 @@
+.myMore {
+    display: inline-block;
+    margin: 0 15px;
+    /* cursor: pointer; */
+}
+
+.circle {
+    width: 4px;
+    height: 4px;
+    border-radius: 20px;
+    background-color: black;
+    margin: 2px 0;
+}
