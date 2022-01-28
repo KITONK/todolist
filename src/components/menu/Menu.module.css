@@ -1,0 +1,12 @@
+.myMenu {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.myBar1, .myBar2, .myBar3 {
+    width: 20px;
+    height: 2px;
+    background-color: black;
+    margin: 3px 0;
+    transition: 0.4s;
+}
